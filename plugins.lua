@@ -8,7 +8,7 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      format & linting
+      -- format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
