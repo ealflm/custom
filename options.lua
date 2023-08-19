@@ -11,7 +11,12 @@ opt.autoread = true
 opt.history = 999
 opt.relativenumber = true
 opt.swapfile = false
-opt.guifont = {"JetBrainsMonoNL NF", ":h14"}
+opt.guifont = {"JetBrainsMonoNL Nerd Font", ":h11"}
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
+
+opt.shell = "powershell"
+opt.shellcmdflag = "-command"
+opt.shellquote = "\""
+opt.shellxquote = ""

@@ -4,7 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd" }
+-- local servers = { "html", "cssls", "tsserver", "clangd", "csharp_ls" }
+local servers = { "html", "cssls", "tsserver", "clangd"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -17,6 +18,13 @@ end
 -- lspconfig.pyright.setup { blabla}
 
 lspconfig.omnisharp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  handlers = {
+    ["textDocument/definition"] = require('omnisharp_extended').handler,
+  },
+
   cmd = { "dotnet", "C:/omnisharp-win-x64-net6.0/OmniSharp.dll" },
 
   -- Enables support for reading code style, naming convention and analyzer

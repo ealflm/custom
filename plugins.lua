@@ -8,13 +8,16 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- format & linting
+      format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
           require "custom.configs.null-ls"
         end,
       },
+      {
+        "Hoffs/omnisharp-extended-lsp.nvim"
+      }
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -30,12 +33,13 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    -- enabled = false,
     opts = overrides.treesitter,
   },
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    opts = overrides.nvimtree
   },
 
   {

@@ -1,12 +1,16 @@
 ---@type MappingsTable
 local M = {}
 
-M.general = {
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-  },
+M.nvimtree = {
+    plugin = true,
+  
+    n = {
+      -- toggle
+      ["<tab>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+  
+      -- focus
+      ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    },
 }
-
--- more keybinds!
 
 return M

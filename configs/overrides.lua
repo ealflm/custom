@@ -41,6 +41,7 @@ M.mason = {
 }
 
 M.nvimtree = {
+  on_attach = require("custom.configs.nvim-tree").on_attach,
   filters = {
     dotfiles = true,
     exclude = {vim.fn.stdpath "config" .. "/lua/custom"},
@@ -58,7 +59,8 @@ M.nvimtree = {
   },
   git = {enable = true},
   renderer = {
-    highlight_git = true,
+    highlight_git = false,
+    highlight_opened_files = "name",
     icons = {
       show = {git = true},
       glyphs = {
@@ -81,7 +83,10 @@ M.nvimtree = {
   view = {
     adaptive_size = true
   },
-  update_focused_file = {enable = false}
+  update_focused_file = {enable = false},
+  filesystem_watchers = {
+    enable = true,
+  },
 }
 
 M.nvterm = {
