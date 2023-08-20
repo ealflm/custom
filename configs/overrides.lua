@@ -12,12 +12,10 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "c_sharp"
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
 }
 
@@ -48,7 +46,7 @@ M.nvimtree = {
     custom = {".DS_Store", ".localized", ".workspace.md"}
   },
   diagnostics = {
-    enable = true,
+    enable = false,
     show_on_dirs = true,
     debounce_delay = 50,
     severity = {
@@ -81,7 +79,19 @@ M.nvimtree = {
     change_dir = {enable = true, global = true}
   },
   view = {
-    adaptive_size = true
+    adaptive_size = true,
+    float = {
+      enable = false,
+      quit_on_focus_loss = true,
+      open_win_config = {
+        relative = "editor",
+        border = "rounded",
+        width = 30,
+        height = 30,
+        row = 1,
+        col = 1,
+      },
+    },
   },
   update_focused_file = {enable = false},
   filesystem_watchers = {
@@ -102,6 +112,40 @@ M.nvterm = {
       }
     }
   }
+}
+
+M.blankline = {
+  indentLine_enabled = 1,
+  filetype_exclude = {
+    "help",
+    "terminal",
+    "lazy",
+    "lspinfo",
+    "TelescopePrompt",
+    "TelescopeResults",
+    "mason",
+    "nvdash",
+    "nvcheatsheet",
+    "",
+  },
+  buftype_exclude = { "terminal" },
+  show_trailing_blankline_indent = false,
+  show_first_indent_level = false,
+  show_current_context = false,
+  show_current_context_start = false,
+}
+
+M.telescope = {
+  extensions = {
+    -- repo = {
+    --   list = {
+    --     fd_opts = {"--no-ignore-vcs"},
+    --     search_dirs = {"D:/"}
+    --   }
+    -- }
+  },
+  -- extensions_list = {"ui-select", "repo"}
+  extensions_list = {"ui-select"}
 }
 
 return M

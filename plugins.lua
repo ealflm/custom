@@ -33,7 +33,6 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    -- enabled = false,
     opts = overrides.treesitter,
   },
 
@@ -45,6 +44,35 @@ local plugins = {
   {
     "NvChad/nvterm",
     opts = overrides.nvterm
+  },
+
+  {
+    "folke/which-key.nvim",
+    enabled = false
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = overrides.blankline
+  },
+
+  -- ["nvim-telescope/telescope-ui-select.nvim"] = {cmd = "Telescope"},
+
+  -- ["ealflm/telescope-repo.nvim"] = {cmd = "Telescope"},
+
+  -- ["nvim-telescope/telescope.nvim"] = {override_options = overrides.telescope},
+
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
+
+  -- {
+  --   "cljoly/telescope-repo.nvim",
+  -- },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope
   },
 
   -- Install a plugin

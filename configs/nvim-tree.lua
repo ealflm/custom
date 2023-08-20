@@ -12,6 +12,7 @@ M.on_attach = function(bufnr)
 
     -- remove a default
     vim.keymap.del('n', '<tab>', { buffer = bufnr })
+    vim.keymap.del('n', '<C-e>', { buffer = bufnr })
 end
 
 return M
