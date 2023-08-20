@@ -50,6 +50,15 @@ M.disabled = {
   },
 }
 
+M.general = {
+  n = {
+    -- navigate within insert mode
+    ["<A-v>"] = { "<C-v>", "Block select mode" },
+    ["<A-i>"] = { "<C-i>", "Goes to the older position" },
+    ["<A-o>"] = { "<C-o>", "Goes to the newer one" },
+  },
+}
+
 M.nvimtree = {
     plugin = true,
   
@@ -130,9 +139,9 @@ M.telescope = {
     -- find
     ["<A-d>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<A-a>"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<A-w>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<A-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["<A-m>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<A-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<A-r>"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
 
     -- git
     ["<A-c>"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
@@ -141,7 +150,7 @@ M.telescope = {
     ["<A-y>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
     -- repo
-    ["<A-'>"] = { "<cmd> Telescope repo list <CR>", "Open all repository in system" },
+    -- ["<A-'>"] = { "<cmd> Telescope repo list <CR>", "Open all repository in system" },
   },
 }
 
@@ -150,21 +159,21 @@ M.nvterm = {
 
   t = {
     -- toggle in terminal mode
-    ["<A-i>"] = {
+    ["<A-u>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
 
-    ["<A-u>"] = {
+    ["<A-->"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<A-=>"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -174,21 +183,21 @@ M.nvterm = {
 
   n = {
     -- toggle in normal mode
-    ["<A-i>"] = {
+    ["<A-u>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
 
-    ["<A-u>"] = {
+    ["<A-->"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<A-=>"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
