@@ -38,6 +38,7 @@ local plugins = {
 
   {
     "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeFindFile" },
     opts = overrides.nvimtree
   },
 
