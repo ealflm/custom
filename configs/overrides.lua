@@ -145,7 +145,7 @@ M.telescope = {
     -- }
   },
   -- extensions_list = {"ui-select", "repo"}
-  extensions_list = {"ui-select"}
+  extensions_list = {"themes", "terms", "ui-select"}
 }
 
 return M
