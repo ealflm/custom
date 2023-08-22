@@ -34,6 +34,12 @@ M.disabled = {
     ["<Down>"] = "",
     ["<leader>b"] = "",
     ["<leader>fm"] = "",
+    ["<leader>ff"] = "",
+    ["<leader>fa"] = "",
+    ["<leader>fw"] = "",
+    ["<leader>fz"] = "",
+    ["<leader>cm"] = "",
+    ["<leader>gt"] = "",
   },
   t = {
     ["<A-h>"] = "",
@@ -56,6 +62,14 @@ M.general = {
     ["<A-v>"] = { "<C-v>", "Block select mode" },
     ["<A-i>"] = { "<C-i>", "Goes to the older position" },
     ["<A-o>"] = { "<C-o>", "Goes to the newer one" },
+
+    -- scripts
+    ["<A-m>"] = { 
+      function()
+        require("custom.scripts.devenv").StartDevEnv()
+      end,
+      "Open Visual Studio",
+    },
   },
 }
 
@@ -137,15 +151,15 @@ M.telescope = {
 
   n = {
     -- find
-    ["<A-d>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<A-;>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<A-a>"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<A-m>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<A-/>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<A-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<A-r>"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
 
     -- git
     ["<A-c>"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<A-;>"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<A-'>"] = { "<cmd> Telescope git_status <CR>", "Git status" },
     ["<A-s>"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
     ["<A-y>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
