@@ -66,6 +66,12 @@ M.general = {
     -- scripts
     ["<A-m>"] = { 
       function()
+        require("custom.scripts.devenv").OpenCurrentBufferDevEnv()
+      end,
+      "Open Visual Studio",
+    },
+    ["<A-S-m>"] = { 
+      function()
         require("custom.scripts.devenv").StartDevEnv()
       end,
       "Open Visual Studio",

@@ -1,3 +1,5 @@
+local devenv_command = "devenv"
+
 function ReverseTable(tbl)
     local reversed = {}
     local len = #tbl
@@ -19,7 +21,6 @@ function GetBufferPathsFromIDs(buffer_ids)
 end
 
 function OpenBufferPathsInDevenv(buffer_paths)
-    local devenv_command = "devenv"
     local cmd_args = table.concat(buffer_paths, " ")
     local cmd = string.format('%s /edit %s', devenv_command, cmd_args)
     os.execute(cmd)
@@ -32,6 +33,16 @@ function OpenReversedBufferPaths()
     OpenBufferPathsInDevenv(reversed_paths)
 end
 
+function OpenCurrentBufferInDevenv()
+    local current_buf_id = vim.fn.bufnr('%') -- Lấy ID của buffer hiện tại
+    local buf_path = vim.api.nvim_buf_get_name(current_buf_id)
+    if buf_path ~= '' then
+        local cmd = string.format('%s /edit "%s"', devenv_command, buf_path)
+        os.execute(cmd)
+    end
+end
+
 return {
-    StartDevEnv = OpenReversedBufferPaths
+    StartDevEnv = OpenReversedBufferPaths,
+    OpenCurrentBufferDevEnv = OpenCurrentBufferInDevenv
 }
