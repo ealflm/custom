@@ -40,6 +40,7 @@ M.disabled = {
     ["<leader>fz"] = "",
     ["<leader>cm"] = "",
     ["<leader>gt"] = "",
+    ["<leader>/"] = "",
   },
   t = {
     ["<A-h>"] = "",
@@ -49,6 +50,7 @@ M.disabled = {
   v = {
     ["<Up>"] = "",
     ["<Down>"] = "",
+    ["<leader>/"] = "",
   },
   x = {
     ["j"] = "",
@@ -75,6 +77,33 @@ M.general = {
         require("custom.scripts.devenv").StartDevEnv()
       end,
       "Open Visual Studio",
+    },
+    ["<leader>tt"] = { 
+      function()
+        require('base46').toggle_theme()
+      end,
+      "Toggle Theme",
+    },
+  },
+}
+
+M.comment = {
+  plugin = true,
+
+  -- toggle comment in both modes
+  n = {
+    ["<A-/>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "Toggle comment",
+    },
+  },
+
+  v = {
+    ["<A-/>"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "Toggle comment",
     },
   },
 }
@@ -159,7 +188,7 @@ M.telescope = {
     -- find
     ["<A-;>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<A-a>"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<A-/>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<A-:>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<A-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<A-r>"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
 
