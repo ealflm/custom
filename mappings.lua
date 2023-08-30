@@ -191,12 +191,13 @@ M.telescope = {
     ["<A-:>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<A-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<A-r>"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["<A-y>"] = { "<cmd> Telescope resume <CR>", "Telescope resume" },
 
     -- git
     ["<A-c>"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     ["<A-'>"] = { "<cmd> Telescope git_status <CR>", "Git status" },
     ["<A-s>"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
-    ["<A-y>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
+    ["<A-b>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
     -- repo
     -- ["<A-'>"] = { "<cmd> Telescope repo list <CR>", "Open all repository in system" },

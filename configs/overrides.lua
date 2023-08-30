@@ -109,6 +109,14 @@ M.nvterm = {
         width = 0.8,
         height = 0.8,
         border = "double"
+      },
+      fullfloat = {
+        relative = 'editor',
+        row = 0,
+        col = 0,
+        width = 1,
+        height = 1,
+        border = "single"
       }
     }
   }
