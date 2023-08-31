@@ -14,7 +14,6 @@ M.disabled = {
     ["<TAB>"] = "",
     ["<S-Tab>"] = "",
     ["<C-n>"] = "",
-    ["<C-s>"] = "",
     ["[c"] = "",
     ["]c"] = "",
     ["[d"] = "",
@@ -195,7 +194,7 @@ M.telescope = {
 
     -- git
     ["<A-c>"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<A-'>"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<A-\">"] = { "<cmd> Telescope git_status <CR>", "Git status" },
     ["<A-s>"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
     ["<A-b>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
@@ -229,6 +228,13 @@ M.nvterm = {
       end,
       "Toggle vertical term",
     },
+
+    ["<A-'>"] = {
+      function()
+        require("nvterm.terminal").toggle "fullfloat"
+      end,
+      "Toggle full floating term",
+    },
   },
 
   n = {
@@ -252,6 +258,13 @@ M.nvterm = {
         require("nvterm.terminal").toggle "vertical"
       end,
       "Toggle vertical term",
+    },
+
+    ["<A-'>"] = {
+      function()
+        require("nvterm.terminal").toggle "fullfloat"
+      end,
+      "Toggle full floating term",
     },
   },
 }

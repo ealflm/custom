@@ -76,6 +76,11 @@ local plugins = {
     opts = overrides.telescope
   },
 
+  {
+    "NvChad/nvterm",
+    enabled = false,
+  },
+
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -83,6 +88,25 @@ local plugins = {
     config = function()
       require("better_escape").setup()
     end,
+  },
+
+  {
+    "ealflm/nvterm",
+    lazy = false,
+    name = 'envterm',
+    opts = overrides.nvterm,
+    init = function()
+      require("core.utils").load_mappings "nvterm"
+    end,
+    config = function(_, opts)
+      require "base46.term"
+      require("nvterm").setup(opts)
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
   },
 
   -- To make a plugin not be loaded
