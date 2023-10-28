@@ -66,19 +66,6 @@ M.general = {
     ["<A-i>"] = { "<C-i>", "Goes to the older position" },
     ["<A-o>"] = { "<C-o>", "Goes to the newer one" },
 
-    -- scripts
-    ["<A-m>"] = { 
-      function()
-        require("custom.scripts.devenv").OpenCurrentBufferDevEnv()
-      end,
-      "Open Visual Studio",
-    },
-    ["<A-S-m>"] = { 
-      function()
-        require("custom.scripts.devenv").StartDevEnv()
-      end,
-      "Open Visual Studio",
-    },
     ["<leader>tt"] = { 
       function()
         require('base46').toggle_theme()
@@ -100,6 +87,25 @@ M.general = {
       "Open nvwork",
     }
 
+  },
+}
+
+M.devenv = {
+  plugin = true,
+
+  n = {
+    ["<A-m>"] = {
+      function()
+        require("devenv").OpenCurrentBufferDevEnv()
+      end,
+      "Open Visual Studio",
+    },
+    ["<A-S-m>"] = {
+      function()
+        require("devenv").StartDevEnv()
+      end,
+      "Open Visual Studio",
+    },
   },
 }
 

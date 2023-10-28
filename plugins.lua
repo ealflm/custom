@@ -2,13 +2,9 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
-
-  -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
@@ -22,10 +18,9 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
 
-  -- override plugin configs
   {
     "williamboman/mason.nvim",
     opts = overrides.mason
@@ -64,19 +59,9 @@ local plugins = {
     opts = overrides.blankline
   },
 
-  -- ["nvim-telescope/telescope-ui-select.nvim"] = {cmd = "Telescope"},
-
-  -- ["ealflm/telescope-repo.nvim"] = {cmd = "Telescope"},
-
-  -- ["nvim-telescope/telescope.nvim"] = {override_options = overrides.telescope},
-
   {
     "nvim-telescope/telescope-ui-select.nvim",
   },
-
-  -- {
-  --   "cljoly/telescope-repo.nvim",
-  -- },
 
   {
     "nvim-telescope/telescope.nvim",
@@ -89,7 +74,6 @@ local plugins = {
     enabled = false,
   },
 
-  -- Install a plugin
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -111,19 +95,12 @@ local plugins = {
     end,
   },
 
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
+  {
+    "ealflm/devenv",
+    init = function()
+      require("core.utils").load_mappings "devenv"
+    end,
+  },
 }
 
 return plugins
