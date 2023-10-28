@@ -153,7 +153,7 @@ M.telescope = {
     -- }
   },
   -- extensions_list = {"ui-select", "repo"}
-  extensions_list = {"themes", "terms", "ui-select"}
+  extensions_list = {"themes", "terms", "ui-select", "nvwork"}
 }
 
 local cmp = require("cmp")

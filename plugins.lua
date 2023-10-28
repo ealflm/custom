@@ -91,22 +91,16 @@ local plugins = {
   },
 
   {
-    "ealflm/nvterm",
-    lazy = false,
-    name = 'envterm',
-    opts = overrides.nvterm,
-    init = function()
-      require("core.utils").load_mappings "nvterm"
-    end,
-    config = function(_, opts)
-      require "base46.term"
-      require("nvterm").setup(opts)
-    end,
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
   },
 
   {
-    "hrsh7th/nvim-cmp",
-    opts = overrides.cmp,
+    "ealflm/nvwork",
+    lazy = false,
+    config = function()
+      require("nvwork").setup()
+    end,
   },
 
   -- To make a plugin not be loaded

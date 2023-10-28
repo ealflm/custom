@@ -40,6 +40,8 @@ M.disabled = {
     ["<leader>cm"] = "",
     ["<leader>gt"] = "",
     ["<leader>/"] = "",
+    ["<leader>h"] = "",
+    ["<leader>v"] = "",
   },
   t = {
     ["<A-h>"] = "",
@@ -83,6 +85,21 @@ M.general = {
       end,
       "Toggle Theme",
     },
+
+    ["<A-'>"] = {
+      function()
+        require("nvwork").open_nvwork_selected_file()
+      end,
+      "Open nvwork",
+    },
+
+    ["<A-0>"] = {
+      function()
+        require('telescope').extensions.nvwork.select()
+      end,
+      "Open nvwork",
+    }
+
   },
 }
 
@@ -185,17 +202,17 @@ M.telescope = {
 
   n = {
     -- find
-    ["<A-;>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<A-Space>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<A-a>"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<A-:>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<A-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<A-f>"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<A-S-f>"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
     ["<A-r>"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<A-y>"] = { "<cmd> Telescope resume <CR>", "Telescope resume" },
 
     -- git
     ["<A-c>"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     ["<A-\">"] = { "<cmd> Telescope git_status <CR>", "Git status" },
-    ["<A-s>"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
+    ["<A-d>"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
     ["<A-b>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
     -- repo
@@ -302,6 +319,174 @@ M.gitsigns = {
       opts = { expr = true },
     },
   },
+}
+
+M.gitsigns = {
+    plugin = true,
+
+    n = {
+        -- Navigation through hunks
+        ["<A-n>"] = {
+            function()
+                if vim.wo.diff then
+                    return "]c"
+                end
+                vim.schedule(function()
+                    require("gitsigns").next_hunk()
+                end)
+                return "<Ignore>"
+            end,
+            "Jump to next hunk",
+            opts = { expr = true },
+        },
+
+        ["<A-p>"] = {
+            function()
+                if vim.wo.diff then
+                    return "[c"
+                end
+                vim.schedule(function()
+                    require("gitsigns").prev_hunk()
+                end)
+                return "<Ignore>"
+            end,
+            "Jump to prev hunk",
+            opts = { expr = true },
+        },
+
+        ["<A-s>"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").stage_hunk()
+                end)
+            end,
+            "Stage hunk",
+        },
+
+        ["<leader>hr"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").reset_hunk()
+                end)
+            end,
+            "Reset hunk",
+        },
+
+        ["<A-S-s>"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").stage_buffer()
+                end)
+            end,
+            "Stage buffer",
+        },
+
+        ["<leader>hu"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").undo_stage_hunk()
+                end)
+            end,
+            "Undo stage hunk",
+        },
+
+        ["<leader>hR"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").reset_buffer()
+                end)
+            end,
+            "Reset buffer",
+        },
+
+        ["<leader>hp"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").preview_hunk()
+                end)
+            end,
+            "Preview hunk",
+        },
+
+        ["<leader>hb"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").blame_line{full=true}
+                end)
+            end,
+            "Blame line (full)",
+        },
+
+        ["<leader>tb"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").toggle_current_line_blame()
+                end)
+            end,
+            "Toggle current line blame",
+        },
+
+        ["<leader>hd"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").diffthis()
+                end)
+            end,
+            "Diff this",
+        },
+
+        ["<leader>hD"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").diffthis('~')
+                end)
+            end,
+            "Diff this (~)",
+        },
+
+        ["<leader>td"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").toggle_deleted()
+                end)
+            end,
+            "Toggle deleted",
+        },
+    },
+
+    v = {
+        ["<A-s>"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").stage_hunk {vim.fn.line('.'), vim.fn.line('v')}
+                end)
+            end,
+            "Stage hunk",
+        },
+
+        ["<leader>hr"] = {
+            function()
+                vim.schedule(function()
+                    require("gitsigns").reset_hunk  {vim.fn.line('.'), vim.fn.line('v')}
+                end)
+            end,
+            "Reset hunk",
+        },
+    },
+
+    o = {
+        ["ih"] = {
+            ":<C-U>Gitsigns select_hunk<CR>",
+            "Select hunk",
+        },
+    },
+
+    x = {
+        ["ih"] = {
+            ":<C-U>Gitsigns select_hunk<CR>",
+            "Select hunk",
+        },
+    },
 }
 
 return M
