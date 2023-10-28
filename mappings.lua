@@ -98,13 +98,13 @@ M.devenv = {
       function()
         require("devenv").OpenCurrentBufferDevEnv()
       end,
-      "Open Visual Studio",
+      "Open single file in visual studio",
     },
     ["<A-S-m>"] = {
       function()
         require("devenv").StartDevEnv()
       end,
-      "Open Visual Studio",
+      "Open all files in visual studio",
     },
   },
 }

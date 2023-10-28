@@ -89,7 +89,6 @@ local plugins = {
 
   {
     "ealflm/nvwork",
-    lazy = false,
     config = function()
       require("nvwork").setup()
     end,
