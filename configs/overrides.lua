@@ -110,7 +110,8 @@ M.nvterm = {
         height = 0.8,
         border = "double"
       },
-      fullfloat = {
+      lazygit = {
+        shell = "lazygit",
         relative = 'editor',
         row = 0,
         col = 0,

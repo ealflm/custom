@@ -43,8 +43,15 @@ local plugins = {
   },
 
   {
-    "NvChad/nvterm",
-    opts = overrides.nvterm
+  "ealflm/nvterm",
+    opts = overrides.nvterm,
+    init = function()
+      require("core.utils").load_mappings "nvterm"
+    end,
+    config = function(_, opts)
+      require "base46.term"
+      require("nvterm").setup(opts)
+    end,
   },
 
   {
@@ -78,6 +85,7 @@ local plugins = {
 
   {
     "NvChad/nvterm",
+    name = "nvterm_disabled",
     enabled = false,
   },
 

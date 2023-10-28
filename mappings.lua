@@ -246,11 +246,11 @@ M.nvterm = {
       "Toggle vertical term",
     },
 
-    ["<A-'>"] = {
+    ["<A-;>"] = {
       function()
-        require("nvterm.terminal").toggle "fullfloat"
+        require("nvterm.terminal").toggle "lazygit"
       end,
-      "Toggle full floating term",
+      "Toggle lazygit",
     },
   },
 
@@ -277,46 +277,11 @@ M.nvterm = {
       "Toggle vertical term",
     },
 
-    ["<A-'>"] = {
+    ["<A-;>"] = {
       function()
-        require("nvterm.terminal").toggle "fullfloat"
+        require("nvterm.terminal").toggle "lazygit"
       end,
-      "Toggle full floating term",
-    },
-  },
-}
-
-M.gitsigns = {
-  plugin = true,
-
-  n = {
-    -- Navigation through hunks
-    ["<A-n>"] = {
-      function()
-        if vim.wo.diff then
-          return "<A-n>"
-        end
-        vim.schedule(function()
-          require("gitsigns").next_hunk()
-        end)
-        return "<Ignore>"
-      end,
-      "Jump to next hunk",
-      opts = { expr = true },
-    },
-
-    ["<A-p>"] = {
-      function()
-        if vim.wo.diff then
-          return "<A-p>"
-        end
-        vim.schedule(function()
-          require("gitsigns").prev_hunk()
-        end)
-        return "<Ignore>"
-      end,
-      "Jump to prev hunk",
-      opts = { expr = true },
+      "Toggle lazygit",
     },
   },
 }
