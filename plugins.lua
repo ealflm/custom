@@ -76,6 +76,10 @@ local plugins = {
   },
 
   {
+    "lewis6991/gitsigns.nvim",
+  },
+
+  {
     "sindrets/diffview.nvim",
     lazy = false,
     opts = overrides.diffview,
@@ -115,16 +119,24 @@ local plugins = {
   },
 }
 
-if vim.g.clearmode == 1 then
-  local disabled_plugins = {
-    "neovim/nvim-lspconfig",
-    "nvim-tree/nvim-tree.lua",
-    "nvim-telescope/telescope-ui-select.nvim",
-    "nvim-telescope/telescope.nvim",
-    "ealflm/nvterm",
-    "ealflm/devenv",
-    "ealflm/nvwork",
-  }
+local disabled_plugins = {
+  "neovim/nvim-lspconfig",
+  "nvim-tree/nvim-tree.lua",
+  "nvim-telescope/telescope-ui-select.nvim",
+  "nvim-telescope/telescope.nvim",
+  "ealflm/nvterm",
+  "ealflm/devenv",
+  "ealflm/nvwork",
+}
+
+if vim.g.clearmode ~= nil then
+  if vim.g.clearmode == 2 then
+    table.insert(disabled_plugins, "lewis6991/gitsigns.nvim")
+    vim.api.nvim_set_hl(0, "DiffDelete", {})
+    vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#273732" })
+    vim.api.nvim_set_hl(0, "DiffText", { bg = "#243e5d" })
+    vim.api.nvim_set_hl(0, "DiffChange", { bg = "#373844" })
+  end
 
   for _, plugin in ipairs(plugins) do
     local plugin_name = plugin[1]

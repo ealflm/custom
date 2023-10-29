@@ -129,7 +129,7 @@ M.nvterm = {
         border = "single"
       },
       diffblank = {
-        shell = "nvim --cmd 'let g:clearmode=1' -c 'InitDiffBlank'",
+        shell = "nvim --cmd 'let g:clearmode=2' -c 'InitDiffBlank'",
         relative = 'editor',
         row = 0,
         col = 0,

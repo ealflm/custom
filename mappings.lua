@@ -24,7 +24,6 @@ M.disabled = {
     ["<Leader>fw"] = "",
     ["<Esc>"] = "",
     ["<C-s>"] = "",
-    ["<C-c>"] = "",
     ["<leader>n"] = "",
     ["<leader>rn"] = "",
     ["j"] = "",
@@ -79,8 +78,11 @@ M.general = {
       end,
       "Open nvwork",
     }
-
   },
+
+  x = {
+    ["<C-c>"] = { '"+y', "Copy visual" },
+  }
 }
 
 M.devenv = {
