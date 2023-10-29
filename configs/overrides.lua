@@ -120,7 +120,7 @@ M.nvterm = {
         border = "single"
       },
       diffview = {
-        shell = "nvim -c 'InitDiffview'",
+        shell = "nvim --cmd 'let g:clearmode=1' -c 'InitDiffview'",
         relative = 'editor',
         row = 0,
         col = 0,
@@ -129,7 +129,15 @@ M.nvterm = {
         border = "single"
       },
       diffblank = {
-        shell = "nvim -c 'InitDiffBlank'",
+        shell = "nvim --cmd 'let g:clearmode=1' -c 'InitDiffBlank'",
+        relative = 'editor',
+        row = 0,
+        col = 0,
+        width = 1,
+        height = 1,
+        border = "single"
+      },
+      nvwork = {
         relative = 'editor',
         row = 0,
         col = 0,
@@ -165,13 +173,6 @@ M.blankline = {
 local telescope_actions = require("telescope.actions")
 
 M.telescope = {
-  defaults = {
-    mappings = {
-      i = {
-        ["<esc>"] = telescope_actions.close,
-      },
-    },
-  },
   extensions = {
     -- repo = {
     --   list = {

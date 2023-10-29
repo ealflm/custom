@@ -88,7 +88,7 @@ local plugins = {
   },
 
   {
-  "ealflm/nvterm",
+    "ealflm/nvterm",
     opts = overrides.nvterm,
     init = function()
       require("core.utils").load_mappings "nvterm"
@@ -101,6 +101,7 @@ local plugins = {
 
   {
     "ealflm/nvwork",
+    lazy = false,
     config = function()
       require("nvwork").setup()
     end,
@@ -113,5 +114,24 @@ local plugins = {
     end,
   },
 }
+
+if vim.g.clearmode == 1 then
+  local disabled_plugins = {
+    "neovim/nvim-lspconfig",
+    "nvim-tree/nvim-tree.lua",
+    "nvim-telescope/telescope-ui-select.nvim",
+    "nvim-telescope/telescope.nvim",
+    "ealflm/nvterm",
+    "ealflm/devenv",
+    "ealflm/nvwork",
+  }
+
+  for _, plugin in ipairs(plugins) do
+    local plugin_name = plugin[1]
+    if vim.tbl_contains(disabled_plugins, plugin_name) then
+      plugin.enabled = false
+    end
+  end
+end
 
 return plugins

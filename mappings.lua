@@ -73,13 +73,6 @@ M.general = {
       "Toggle Theme",
     },
 
-    ["<A-'>"] = {
-      function()
-        require("nvwork").open_nvwork_selected_file()
-      end,
-      "Open nvwork",
-    },
-
     ["<A-0>"] = {
       function()
         require('telescope').extensions.nvwork.select()
@@ -303,7 +296,23 @@ M.nvterm = {
       end,
       "Toggle diffblank",
     },
+
+    ["<A-'>"] = {
+      function()
+        require("nvterm.terminal").toggle "nvwork"
+      end,
+      "Open Nvwork",
+    },
   },
+
+  i = {
+    ["<A-'>"] = {
+      function()
+        require("nvterm.terminal").toggle "nvwork"
+      end,
+      "Open Nvwork",
+    },
+  }
 }
 
 M.diffview = {
@@ -500,5 +509,9 @@ M.gitsigns = {
         },
     },
 }
+
+if vim.g.clearmode == 1 then
+  M.tabufline = {}
+end
 
 return M
