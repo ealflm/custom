@@ -127,6 +127,15 @@ M.nvterm = {
         width = 1,
         height = 1,
         border = "single"
+      },
+      diffblank = {
+        shell = "nvim -c 'InitDiffBlank'",
+        relative = 'editor',
+        row = 0,
+        col = 0,
+        width = 1,
+        height = 1,
+        border = "single"
       }
     }
   }

@@ -258,6 +258,13 @@ M.nvterm = {
       end,
       "Toggle lazygit",
     },
+
+    ["<A-,>"] = {
+      function()
+        require("nvterm.terminal").toggle "diffblank"
+      end,
+      "Toggle diffblank",
+    },
   },
 
   n = {
@@ -288,6 +295,13 @@ M.nvterm = {
         require("nvterm.terminal").toggle "lazygit"
       end,
       "Toggle lazygit",
+    },
+
+    ["<A-,>"] = {
+      function()
+        require("nvterm.terminal").toggle "diffblank"
+      end,
+      "Toggle diffblank",
     },
   },
 }
