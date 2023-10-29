@@ -118,6 +118,15 @@ M.nvterm = {
         width = 1,
         height = 1,
         border = "single"
+      },
+      diffview = {
+        shell = "nvim -c 'InitDiffview'",
+        relative = 'editor',
+        row = 0,
+        col = 0,
+        width = 1,
+        height = 1,
+        border = "single"
       }
     }
   }
@@ -144,7 +153,16 @@ M.blankline = {
   show_current_context_start = false,
 }
 
+local telescope_actions = require("telescope.actions")
+
 M.telescope = {
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = telescope_actions.close,
+      },
+    },
+  },
   extensions = {
     -- repo = {
     --   list = {
