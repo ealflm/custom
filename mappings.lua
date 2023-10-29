@@ -258,13 +258,6 @@ M.nvterm = {
       end,
       "Toggle lazygit",
     },
-
-    ["<A-e>"] = {
-      function()
-        require("nvterm.terminal").toggle "diffview"
-      end,
-      "Toggle diffview",
-    },
   },
 
   n = {
@@ -296,7 +289,13 @@ M.nvterm = {
       end,
       "Toggle lazygit",
     },
+  },
+}
 
+M.diffview = {
+  plugin = true,
+
+  n = {
     ["<A-e>"] = {
       function()
         require("nvterm.terminal").toggle "diffview"
@@ -304,6 +303,15 @@ M.nvterm = {
       "Toggle diffview",
     },
   },
+
+  t = {
+    ["<A-e>"] = {
+      function()
+        require("nvterm.terminal").toggle "diffview"
+      end,
+      "Toggle diffview",
+    },
+  }
 }
 
 M.gitsigns = {

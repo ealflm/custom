@@ -79,6 +79,9 @@ local plugins = {
     "sindrets/diffview.nvim",
     lazy = false,
     opts = overrides.diffview,
+    init = function()
+      require("core.utils").load_mappings "diffview"
+    end,
     config = function(_, opts)
       require("diffview").setup(opts)
     end,
