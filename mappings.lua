@@ -302,6 +302,21 @@ M.diffview = {
       end,
       "Toggle diffview",
     },
+
+    ["<leader>gh"] = {
+      "<cmd>DiffviewFileHistory<CR>",
+      "Open DiffviewFileHistory",
+    },
+
+    ["<leader>gc"] = {
+      "<cmd>DiffviewFileHistory %<CR>",
+      "Open DiffviewFileHistory Current",
+    },
+
+    ["<leader>gq"] = {
+      "<cmd>DiffviewClose<CR>",
+      "Close Diffview",
+    },
   },
 
   t = {
