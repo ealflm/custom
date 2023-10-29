@@ -76,6 +76,15 @@ local plugins = {
   },
 
   {
+    "sindrets/diffview.nvim",
+    lazy = false,
+    opts = overrides.diffview,
+    config = function(_, opts)
+      require("diffview").setup(opts)
+    end,
+  },
+
+  {
   "ealflm/nvterm",
     opts = overrides.nvterm,
     init = function()

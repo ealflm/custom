@@ -14,6 +14,10 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  DiffDelete = { bg = "#362b31" },
+  DiffviewDiffAdd = { bg = "#273732" },
+  DiffviewDiffText = { bg = "#243e5d" },
+  -- DiffviewDiffChange = { bg = "#373844" },
 }
 
 return M

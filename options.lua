@@ -23,9 +23,20 @@ opt.shellxquote = ""
 
 -- Indenting
 opt.expandtab = true
-opt.shiftwidth = 4
 opt.smartindent = true
+opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "lua",
+	callback = function()
+    opt.shiftwidth = 2
+    opt.tabstop = 2
+    opt.softtabstop = 2
+	end
+})
+
 vim.cmd "set nofixendofline"
+
+vim.api.nvim_set_keymap('', '<A-w>', '<C-w>', { noremap = true })
