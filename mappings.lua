@@ -87,13 +87,13 @@ M.devenv = {
   plugin = true,
 
   n = {
-    ["<A-m>"] = {
+    ["<leader>vc"] = {
       function()
         require("devenv").OpenCurrentBufferDevEnv()
       end,
       "Open single file in visual studio",
     },
-    ["<A-S-m>"] = {
+    ["<leader>vs"] = {
       function()
         require("devenv").StartDevEnv()
       end,
