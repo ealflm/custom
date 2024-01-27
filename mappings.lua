@@ -31,7 +31,7 @@ M.disabled = {
     ["<Up>"] = "",
     ["<Down>"] = "",
     ["<leader>b"] = "",
-    -- ["<leader>fm"] = "",
+    ["<leader>fm"] = "",
     ["<leader>ff"] = "",
     ["<leader>fa"] = "",
     ["<leader>fw"] = "",
@@ -88,11 +88,24 @@ M.general = {
         end
       end,
       "Close hover",
-    }
+    },
+
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "LSP formatting",
+    },
   },
 
   x = {
     ["<C-c>"] = { '"+y', "Copy visual" },
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "LSP formatting",
+    },
   }
 }
 
