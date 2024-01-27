@@ -143,6 +143,12 @@ local plugins = {
       require "custom.configs.nvim-dap-virtual-text"
     end,
   },
+
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+  },
 }
 
 local disabled_plugins = {

@@ -545,6 +545,12 @@ M.dap = {
       end,
       "Dap continue",
     },
+    ["<S-F5>"] = {
+      function()
+        require'dap'.disconnect({ terminateDebuggee = true })
+      end,
+      "Dap disconnect",
+    },
     ["<F7>"] = {
       function()
         require('dap').step_over()
