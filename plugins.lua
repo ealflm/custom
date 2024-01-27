@@ -149,6 +149,14 @@ local plugins = {
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
   },
+
+  {
+    "windwp/nvim-ts-autotag",
+    lazy = false,
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+  }
 }
 
 local disabled_plugins = {
