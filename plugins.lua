@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -12,8 +12,8 @@ local plugins = {
         end,
       },
       {
-        "Hoffs/omnisharp-extended-lsp.nvim"
-      }
+        "Hoffs/omnisharp-extended-lsp.nvim",
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -23,7 +23,7 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -34,17 +34,17 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeFindFile" },
-    opts = overrides.nvimtree
+    opts = overrides.nvimtree,
   },
 
   {
     "folke/which-key.nvim",
-    enabled = false
+    enabled = false,
   },
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    opts = overrides.blankline
+    opts = overrides.blankline,
   },
 
   {
@@ -53,7 +53,7 @@ local plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
-    opts = overrides.telescope
+    opts = overrides.telescope,
   },
 
   {
@@ -115,6 +115,31 @@ local plugins = {
     "ealflm/devenv",
     init = function()
       require("core.utils").load_mappings "devenv"
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require "custom.configs.nvim-dap"
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require "custom.configs.nvim-dap-ui"
+    end,
+  },
+
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require "custom.configs.nvim-dap-virtual-text"
     end,
   },
 }
