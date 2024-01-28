@@ -536,13 +536,21 @@ M.gitsigns = {
   },
 }
 
+local js_based_languages = {
+  "typescript",
+  "javascript",
+  "typescriptreact",
+  "javascriptreact",
+  "vue",
+}
+
 M.dap = {
   plugin = true,
 
   n = {
     ["<F3>"] = {
       function()
-        require('dap').toggle_breakpoint()
+  require("dap").toggle_breakpoint()
       end,
       "Dap toggle breakpoint",
     },
@@ -554,7 +562,15 @@ M.dap = {
     },
     ["<F5>"] = {
       function()
-        require('dap').continue()
+        if vim.fn.filereadable(".vscode/launch.json") then
+          local dap_vscode = require("dap.ext.vscode")
+          dap_vscode.load_launchjs(nil, {
+            ["pwa-node"] = js_based_languages,
+            ["chrome"] = js_based_languages,
+            ["pwa-chrome"] = js_based_languages,
+          })
+        end
+        require("dap").continue()
       end,
       "Dap continue",
     },
@@ -607,6 +623,27 @@ M.dap = {
         require('dap.ui.widgets').preview()
       end,
       "Dap preview",
+    },
+  }
+}
+
+M.dapui = {
+  plugin = true,
+
+  n = {
+    ["<F6>"] = {
+      function()
+        require('dapui').toggle()
+      end,
+      "DapUI toggle",
+    },
+  },
+  v = {
+    ["<F6>"] = {
+      function()
+        require('dapui').toggle()
+      end,
+      "DapUI toggle",
     },
   }
 }

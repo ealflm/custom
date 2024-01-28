@@ -58,12 +58,12 @@ dapui.setup {
       elements = {
         {
           id = "repl",
-          size = 0.5,
+          size = 1,
         },
-        {
-          id = "console",
-          size = 0.5,
-        },
+        -- {
+        --   id = "console",
+        --   size = 0.5,
+        -- },
       },
       position = "bottom",
       size = 10,
