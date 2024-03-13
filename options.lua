@@ -31,12 +31,12 @@ opt.tabstop = 4
 opt.softtabstop = 4
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "lua",
-	callback = function()
+  pattern = { "typescript", "lua" },
+  callback = function()
     opt.shiftwidth = 2
     opt.tabstop = 2
     opt.softtabstop = 2
-	end
+  end
 })
 
 vim.cmd "set nofixendofline"
