@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
 -- local servers = { "html", "cssls", "tsserver", "clangd", "csharp_ls" }
-local servers = { "html", "cssls", "clangd"}
+local servers = { "html", "cssls", "clangd" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -16,13 +16,17 @@ end
 
 -- tsserver setup
 lspconfig.tsserver.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+
   capabilities = capabilities,
   init_options = {
     preferences = {
       disableSuggestions = true,
-    }
-  }
+    },
+  },
 }
 
 -- omnisharp setup
@@ -31,7 +35,7 @@ lspconfig.omnisharp.setup {
   capabilities = capabilities,
 
   handlers = {
-    ["textDocument/definition"] = require('omnisharp_extended').handler,
+    ["textDocument/definition"] = require("omnisharp_extended").handler,
   },
 
   cmd = { "dotnet", "C:/omnisharp-win-x64-net6.0/OmniSharp.dll" },

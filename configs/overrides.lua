@@ -12,7 +12,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
-    "c_sharp"
+    "c_sharp",
   },
   indent = {
     enable = true,
@@ -43,8 +43,8 @@ M.nvimtree = {
   on_attach = require("custom.configs.nvim-tree").on_attach,
   filters = {
     dotfiles = true,
-    exclude = {vim.fn.stdpath "config" .. "/lua/custom"},
-    custom = {".DS_Store", ".localized", ".workspace.md"}
+    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
+    custom = { ".DS_Store", ".localized", ".workspace.md" },
   },
   diagnostics = {
     enable = false,
@@ -52,16 +52,16 @@ M.nvimtree = {
     debounce_delay = 50,
     severity = {
       min = vim.diagnostic.severity.ERROR,
-      max = vim.diagnostic.severity.ERROR
+      max = vim.diagnostic.severity.ERROR,
     },
-    icons = {hint = "", info = "", warning = "", error = ""}
+    icons = { hint = "", info = "", warning = "", error = "" },
   },
-  git = {enable = true},
+  git = { enable = true },
   renderer = {
     highlight_git = false,
     highlight_opened_files = "name",
     icons = {
-      show = {git = true},
+      show = { git = true },
       glyphs = {
         git = {
           unstaged = "◇",
@@ -70,14 +70,14 @@ M.nvimtree = {
           renamed = "﹡",
           untracked = "⟡",
           deleted = "⊝",
-          ignored = ""
-        }
-      }
-    }
+          ignored = "",
+        },
+      },
+    },
   },
   actions = {
     use_system_clipboard = true,
-    change_dir = {enable = true, global = true}
+    change_dir = { enable = true, global = true },
   },
   view = {
     adaptive_size = true,
@@ -94,7 +94,7 @@ M.nvimtree = {
       },
     },
   },
-  update_focused_file = {enable = false},
+  update_focused_file = { enable = false },
   filesystem_watchers = {
     enable = true,
   },
@@ -104,50 +104,50 @@ M.nvterm = {
   terminals = {
     type_opts = {
       float = {
-        relative = 'editor',
+        relative = "editor",
         row = 0.1,
         col = 0.1,
         width = 0.8,
         height = 0.82,
-        border = "double"
+        border = "double",
       },
       lazygit = {
         shell = "lazygit",
-        relative = 'editor',
+        relative = "editor",
         row = 0,
         col = 0,
         width = 1,
         height = 1,
-        border = "single"
+        border = "single",
       },
       diffview = {
         shell = "nvim --cmd 'let g:clearmode=1' -c 'InitDiffview'",
-        relative = 'editor',
+        relative = "editor",
         row = 0,
         col = 0,
         width = 1,
         height = 1,
-        border = "single"
+        border = "single",
       },
       diffblank = {
         shell = "nvim --cmd 'let g:clearmode=2' -c 'InitDiffBlank'",
-        relative = 'editor',
+        relative = "editor",
         row = 0,
         col = 0,
         width = 1,
         height = 1,
-        border = "single"
+        border = "single",
       },
       nvwork = {
-        relative = 'editor',
+        relative = "editor",
         row = 0,
         col = 0,
         width = 1,
         height = 1,
-        border = "single"
-      }
-    }
-  }
+        border = "single",
+      },
+    },
+  },
 }
 
 M.blankline = {
@@ -171,7 +171,7 @@ M.blankline = {
   show_current_context_start = false,
 }
 
-local telescope_actions = require("telescope.actions")
+local telescope_actions = require "telescope.actions"
 
 M.telescope = {
   extensions = {
@@ -183,10 +183,10 @@ M.telescope = {
     -- }
   },
   -- extensions_list = {"ui-select", "repo"}
-  extensions_list = {"themes", "terms", "ui-select", "nvwork"}
+  extensions_list = { "themes", "terms", "ui-select", "nvwork" },
 }
 
-local cmp = require("cmp")
+local cmp = require "cmp"
 
 M.cmp = {
   mapping = {
@@ -230,7 +230,7 @@ M.cmp = {
       "i",
       "s",
     }),
-  }
+  },
 }
 
 M.diffview = {
