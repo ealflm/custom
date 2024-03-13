@@ -6,9 +6,15 @@ local plugins = {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "stevearc/conform.nvim",
         config = function()
-          require "custom.configs.null-ls"
+          require "custom.configs.conform"
+        end,
+      },
+      {
+        "mfussenegger/nvim-lint",
+        config = function()
+          require "custom.configs.lint"
         end,
       },
       {
@@ -136,12 +142,12 @@ local plugins = {
         "mxsdev/nvim-dap-vscode-js",
         config = function()
           ---@diagnostic disable-next-line: missing-fields
-          require("dap-vscode-js").setup({
+          require("dap-vscode-js").setup {
             -- Path of node executable. Defaults to $NODE_PATH, and then "node"
             -- node_path = "node",
 
             -- Path to vscode-js-debug installation.
-            debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+            debugger_path = vim.fn.resolve(vim.fn.stdpath "data" .. "/lazy/vscode-js-debug"),
 
             -- Command to use to launch the debug server. Takes precedence over "node_path" and "debugger_path"
             -- debugger_cmd = { "js-debug-adapter" },
@@ -164,7 +170,7 @@ local plugins = {
 
             -- Logging level for output to console. Set to false to disable console output.
             -- log_console_level = vim.log.levels.ERROR,
-          })
+          }
         end,
       },
       {
@@ -197,9 +203,9 @@ local plugins = {
     "windwp/nvim-ts-autotag",
     lazy = false,
     config = function()
-      require('nvim-ts-autotag').setup()
+      require("nvim-ts-autotag").setup()
     end,
-  }
+  },
 }
 
 local disabled_plugins = {
