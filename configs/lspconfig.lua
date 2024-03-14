@@ -16,7 +16,10 @@ end
 
 -- tsserver setup
 lspconfig.tsserver.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
   capabilities = capabilities,
   init_options = {
     preferences = {
