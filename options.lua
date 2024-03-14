@@ -40,6 +40,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*.ts",
+  callback = function()
+    vim.cmd "setlocal fileformat=dos"
+  end,
+})
+
 vim.cmd "set nofixendofline"
 
 vim.api.nvim_set_keymap("", "<A-w>", "<C-w>", { noremap = true })
