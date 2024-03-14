@@ -213,9 +213,6 @@ local disabled_plugins = {
   "nvim-tree/nvim-tree.lua",
   "nvim-telescope/telescope-ui-select.nvim",
   "nvim-telescope/telescope.nvim",
-  "ealflm/nvterm",
-  "ealflm/devenv",
-  "ealflm/nvwork",
 }
 
 if vim.g.clearmode ~= nil then
