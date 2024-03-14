@@ -206,13 +206,6 @@ local plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
-  --
-  -- {
-  --   "Mofiqul/dracula.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {},
-  -- },
 }
 
 local disabled_plugins = {
