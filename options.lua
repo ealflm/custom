@@ -43,7 +43,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*.ts",
   callback = function()
-    vim.cmd "setlocal fileformat=dos"
+    -- vim.cmd "setlocal fileformat=dos"
+    vim.cmd "e ++ff=dos"
   end,
 })
 
