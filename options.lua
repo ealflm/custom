@@ -31,6 +31,10 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 
+vim.cmd "set nofixendofline"
+
+vim.api.nvim_set_keymap("", "<A-w>", "<C-w>", { noremap = true })
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typescript", "lua" },
   callback = function()
@@ -47,7 +51,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     vim.cmd "e ++ff=dos"
   end,
 })
-
-vim.cmd "set nofixendofline"
-
-vim.api.nvim_set_keymap("", "<A-w>", "<C-w>", { noremap = true })
