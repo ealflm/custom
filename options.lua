@@ -47,9 +47,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*module.ts",
   callback = function()
-    if vim.api.nvim_get_option "fileformat" ~= "dos" then
-      vim.cmd "e ++ff=dos"
-      vim.cmd "w"
-    end
+    vim.cmd "e ++ff=dos"
+    vim.cmd "w"
   end,
 })
