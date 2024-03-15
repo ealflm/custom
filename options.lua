@@ -35,6 +35,14 @@ vim.cmd "set nofixendofline"
 
 vim.api.nvim_set_keymap("", "<A-w>", "<C-w>", { noremap = true })
 
+-- Avoid automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd "setlocal formatoptions-=o"
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typescript", "lua" },
   callback = function()
