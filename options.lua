@@ -47,7 +47,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*module.ts",
   callback = function()
-    vim.cmd "e ++ff=dos"
-    vim.cmd "w"
+    vim.cmd "e ++ff=dos | w"
   end,
 })
