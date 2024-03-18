@@ -273,6 +273,9 @@ M.nvterm = {
 
     ["<A-;>"] = {
       function()
+        if require("nvterm.terminal").is_term_open "lazygit" then
+          require("nvterm.terminal").send("R", "lazygit")
+        end
         require("nvterm.terminal").toggle "lazygit"
       end,
       "Toggle lazygit",
@@ -311,6 +314,9 @@ M.nvterm = {
 
     ["<A-;>"] = {
       function()
+        if require("nvterm.terminal").is_term_open "lazygit" then
+          require("nvterm.terminal").send("R", "lazygit")
+        end
         require("nvterm.terminal").toggle "lazygit"
       end,
       "Toggle lazygit",
@@ -347,6 +353,9 @@ M.diffview = {
   n = {
     ["<A-e>"] = {
       function()
+        if require("nvterm.terminal").is_term_open "diffview" then
+          require("nvterm.terminal").send("R", "diffview")
+        end
         require("nvterm.terminal").toggle "diffview"
       end,
       "Toggle diffview",
@@ -371,6 +380,9 @@ M.diffview = {
   t = {
     ["<A-e>"] = {
       function()
+        if require("nvterm.terminal").is_term_open "diffview" then
+          require("nvterm.terminal").send("R", "diffview")
+        end
         require("nvterm.terminal").toggle "diffview"
       end,
       "Toggle diffview",
