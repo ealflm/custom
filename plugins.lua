@@ -87,7 +87,10 @@ local plugins = {
 
   {
     "sindrets/diffview.nvim",
-    lazy = false,
+    lazy = true,
+
+    cmd = "DiffviewOpen",
+
     opts = overrides.diffview,
     init = function()
       require("core.utils").load_mappings "diffview"
@@ -111,7 +114,6 @@ local plugins = {
 
   {
     "ealflm/nvwork",
-    lazy = false,
     config = function()
       require("nvwork").setup()
     end,
@@ -200,7 +202,8 @@ local plugins = {
 
   {
     "windwp/nvim-ts-autotag",
-    lazy = false,
+    lazy = true,
+    event = "InsertEnter",
     config = function()
       require("nvim-ts-autotag").setup()
     end,

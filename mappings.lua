@@ -45,7 +45,7 @@ M.disabled = {
   t = {
     ["<A-h>"] = "",
     ["<A-i>"] = "",
-    ["<A-v>"] = ""
+    ["<A-v>"] = "",
   },
   v = {
     ["<Up>"] = "",
@@ -67,14 +67,14 @@ M.general = {
 
     ["<leader>tt"] = {
       function()
-        require('base46').toggle_theme()
+        require("base46").toggle_theme()
       end,
       "Toggle Theme",
     },
 
     ["<A-0>"] = {
       function()
-        require('telescope').extensions.nvwork.select()
+        require("telescope").extensions.nvwork.select()
       end,
       "Open nvwork",
     },
@@ -106,7 +106,7 @@ M.general = {
       end,
       "LSP formatting",
     },
-  }
+  },
 }
 
 M.devenv = {
@@ -236,7 +236,7 @@ M.telescope = {
 
     -- git
     ["<A-c>"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<A-\">"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ['<A-">'] = { "<cmd> Telescope git_status <CR>", "Git status" },
     ["<A-d>"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
     ["<A-b>"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
@@ -338,7 +338,7 @@ M.nvterm = {
       end,
       "Open Nvwork",
     },
-  }
+  },
 }
 
 M.diffview = {
@@ -375,7 +375,7 @@ M.diffview = {
       end,
       "Toggle diffview",
     },
-  }
+  },
 }
 
 M.gitsigns = {
@@ -485,7 +485,7 @@ M.gitsigns = {
     ["<leader>hD"] = {
       function()
         vim.schedule(function()
-          require("gitsigns").diffthis('~')
+          require("gitsigns").diffthis "~"
         end)
       end,
       "Diff this (~)",
@@ -505,7 +505,7 @@ M.gitsigns = {
     ["<A-s>"] = {
       function()
         vim.schedule(function()
-          require("gitsigns").stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
+          require("gitsigns").stage_hunk { vim.fn.line ".", vim.fn.line "v" }
         end)
       end,
       "Stage hunk",
@@ -514,7 +514,7 @@ M.gitsigns = {
     ["<leader>hr"] = {
       function()
         vim.schedule(function()
-          require("gitsigns").reset_hunk { vim.fn.line('.'), vim.fn.line('v') }
+          require("gitsigns").reset_hunk { vim.fn.line ".", vim.fn.line "v" }
         end)
       end,
       "Reset hunk",
@@ -550,20 +550,20 @@ M.dap = {
   n = {
     ["<F3>"] = {
       function()
-  require("dap").toggle_breakpoint()
+        require("dap").toggle_breakpoint()
       end,
       "Dap toggle breakpoint",
     },
     ["<F4>"] = {
       function()
-        require('dap').repl.open()
+        require("dap").repl.open()
       end,
       "Dap REPL open",
     },
     ["<F5>"] = {
       function()
-        if vim.fn.filereadable(".vscode/launch.json") then
-          local dap_vscode = require("dap.ext.vscode")
+        if vim.fn.filereadable ".vscode/launch.json" then
+          local dap_vscode = require "dap.ext.vscode"
           dap_vscode.load_launchjs(nil, {
             ["pwa-node"] = js_based_languages,
             ["chrome"] = js_based_languages,
@@ -576,37 +576,37 @@ M.dap = {
     },
     ["<S-F5>"] = {
       function()
-        require'dap'.disconnect({ terminateDebuggee = true })
+        require("dap").disconnect { terminateDebuggee = true }
       end,
       "Dap disconnect",
     },
     ["<F7>"] = {
       function()
-        require('dap').step_over()
+        require("dap").step_over()
       end,
       "Dap step over",
     },
     ["<F8>"] = {
       function()
-        require('dap').step_into()
+        require("dap").step_into()
       end,
       "Dap step into",
     },
     ["<F9>"] = {
       function()
-        require('dap').step_out()
+        require("dap").step_out()
       end,
       "Dap step out",
     },
     ["<F10>"] = {
       function()
-        require('dap.ui.widgets').hover()
+        require("dap.ui.widgets").hover()
       end,
       "Dap hover",
     },
     ["<S-F10>"] = {
       function()
-        require('dap.ui.widgets').preview()
+        require("dap.ui.widgets").preview()
       end,
       "Dap preview",
     },
@@ -614,17 +614,17 @@ M.dap = {
   v = {
     ["<F10>"] = {
       function()
-        require('dap.ui.widgets').hover()
+        require("dap.ui.widgets").hover()
       end,
       "Dap hover",
     },
     ["<S-F10>"] = {
       function()
-        require('dap.ui.widgets').preview()
+        require("dap.ui.widgets").preview()
       end,
       "Dap preview",
     },
-  }
+  },
 }
 
 M.dapui = {
@@ -633,7 +633,7 @@ M.dapui = {
   n = {
     ["<F6>"] = {
       function()
-        require('dapui').toggle()
+        require("dapui").toggle()
       end,
       "DapUI toggle",
     },
@@ -641,11 +641,11 @@ M.dapui = {
   v = {
     ["<F6>"] = {
       function()
-        require('dapui').toggle()
+        require("dapui").toggle()
       end,
       "DapUI toggle",
     },
-  }
+  },
 }
 
 if vim.g.clearmode == 1 then
