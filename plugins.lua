@@ -90,6 +90,7 @@ local plugins = {
     lazy = true,
 
     cmd = "DiffviewOpen",
+    keys = { "<leader>gh", "<leader>gc", "<leader>gq" },
 
     opts = overrides.diffview,
     init = function()

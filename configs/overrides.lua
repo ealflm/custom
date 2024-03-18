@@ -181,6 +181,14 @@ M.blankline = {
 local telescope_actions = require "telescope.actions"
 
 M.telescope = {
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-x>"] = { "<esc>", type = "command" },
+        ["<esc>"] = telescope_actions.close,
+      },
+    },
+  },
   extensions = {
     -- repo = {
     --   list = {
