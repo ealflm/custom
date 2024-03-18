@@ -60,6 +60,33 @@ M.disabled = {
 
 M.general = {
   n = {
+    ["<A-\\>"] = {
+      function()
+        vim.ui.input({ prompt = "Do you want to commit all (Y/N): " }, function(input)
+          if input and ((input == "") or string.lower(input) == "y") then
+            vim.cmd '!git add . && git commit -m "WIP"'
+          else
+            vim.cmd "echo ''"
+          end
+        end)
+      end,
+      "Git fast commit",
+      opts = { remap = true },
+    },
+
+    ["<C-\\>"] = {
+      function()
+        vim.ui.input({ prompt = "Do you want to push all (Y/N): " }, function(input)
+          if input and ((input == "") or string.lower(input) == "y") then
+            vim.cmd '!git add . && git commit -m "WIP" && git push'
+          else
+            vim.cmd "echo ''"
+          end
+        end)
+      end,
+      "Git fast push",
+    },
+
     -- navigate within insert mode
     ["<A-v>"] = { "<C-v>", "Block select mode" },
     ["<A-i>"] = { "<C-i>", "Goes to the older position" },
