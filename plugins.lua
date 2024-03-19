@@ -128,6 +128,23 @@ local plugins = {
   },
 
   {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require "custom.configs.nvim-dap-ui"
+      require("core.utils").load_mappings "dapui"
+    end,
+  },
+
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require "custom.configs.nvim-dap-virtual-text"
+    end,
+  },
+
+  {
     "mfussenegger/nvim-dap",
     lazy = true,
     keys = "<F5>",
@@ -136,22 +153,6 @@ local plugins = {
       require("core.utils").load_mappings "dap"
     end,
     dependencies = {
-      {
-        "rcarriga/nvim-dap-ui",
-        dependencies = "mfussenegger/nvim-dap",
-        config = function()
-          require "custom.configs.nvim-dap-ui"
-          require("core.utils").load_mappings "dapui"
-        end,
-      },
-
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        dependencies = "mfussenegger/nvim-dap",
-        config = function()
-          require "custom.configs.nvim-dap-virtual-text"
-        end,
-      },
       -- Install the vscode-js-debug adapter
       {
         "microsoft/vscode-js-debug",
