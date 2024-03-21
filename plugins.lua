@@ -222,6 +222,14 @@ local plugins = {
       }
     end,
   },
+
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+    config = function()
+      vim.cmd "Copilot setup"
+    end,
+  },
 }
 
 local disabled_plugins = {
