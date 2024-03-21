@@ -204,10 +204,12 @@ local plugins = {
 
   {
     "windwp/nvim-ts-autotag",
+    dependencies = "nvim-treesitter/nvim-treesitter",
     lazy = true,
     event = "InsertEnter",
     config = function()
       require("nvim-ts-autotag").setup()
+      vim.cmd "TSEnable autotag"
     end,
   },
 
