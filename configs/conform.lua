@@ -8,7 +8,7 @@ require("conform").setup {
     typescript = { { "prettierd", "prettier" } },
     typescriptreact = { { "prettierd", "prettier" } },
     javascriptreact = { { "prettierd", "prettier" } },
-    json = { { "jsonnetfmt", "yq", "fixjson" } },
+    json = { "deno_fmt" },
   },
   format_after_save = {
     lsp_fallback = true,
